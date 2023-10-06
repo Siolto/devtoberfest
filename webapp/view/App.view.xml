@@ -1,0 +1,23 @@
+<mvc:View controllerName="sap.ui.core.tutorial.odatav4.controller.App"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+    xmlns:semantic="sap.f.semantic"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:macros="sap.fe.macros">
+    <Shell>
+        <App busy="{appView>/busy}"
+            class="sapUiSizeCompact">
+            <pages>
+                <Page title="{i18n>peoplePageTitle}">
+                    <content>
+                        <macros:Table metaPath="@com.sap.vocabularies.UI.v1.LineItem"
+                            id="peopleTable" />
+                    </content>
+                </Page>
+            </pages>
+        </App>
+    </Shell>
+</mvc:View>
