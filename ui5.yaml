@@ -1,0 +1,31 @@
+specVersion: '3.0'
+metadata:
+  name: odata-v4-tutorial
+type: application
+resources:
+  configuration:
+    paths:
+      webapp: webapp
+framework:
+  name: SAPUI5
+  version: "1.118.1"
+  libraries:
+    - name: sap.f
+    - name: sap.m
+    - name: sap.ui.core
+    - name: sap.ui.layout
+    - name: themelib_sap_horizon
+    - name: sap.fe.macros
+    - name: sap.fe.templates
+server:
+  customMiddleware:
+    - name: sap-fe-mockserver
+      mountPath: /
+      afterMiddleware: compression
+      configuration:
+        watch: true
+        services:
+          - urlPath: '/TripPinRESTierService'
+            metadataPath: './webapp/localService/metadata.xml'
+            mockdataPath: './webapp/localService/mockdata'
+
